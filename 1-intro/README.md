@@ -4,14 +4,11 @@
 
 > Unlike an RDBMS, NoSQL is schema free -- you don't need to decide the structure up front.
 
-- CouchDB is a NoSQL (not only SQL) database management system (DBMS) that store JSON documents within databases.  In fact, everything is stored as JSON.  
-- Unlike a relational DBMS (RDBMS), CouchDB is schema-free. You don't design the tables, columns, data types up front like you do with a traditional RDBMS like Oracle, SQL Server, MySQL, etc.
+- CouchDB is a NoSQL (not only SQL) database management system (DBMS) that stores JSON documents within a database. In fact, everything is stored as JSON.  
+- Unlike a relational DBMS (RDBMS), CouchDB is schema-free. You don't design the tables, columns, data types up-front.
 - CouchDB allows you to easily replicate your data on your own machine or across computers around the world.  This promotes fault tolerance.
-- A RESTful API is baked into its DNA. Use the API to do anything.  Create database, save JSON documents, run queries, trigger replication...
--  It utilizes map and reduce (MapReduce or MapReducing) for indexing and querying the database. Map extracts data and Reduce aggregates data.
-
-> Unlike RDBMS SQL queries, MapReduce can be distributed among multiple nodes making it scalable and fast.
-
+- A RESTful API is baked into its DNA. Use the API to do anything.  Futon uses the API do manage things like creating database, editing JSON documents, running queries, triggering replication...
+-  Couch utilizes map and reduce (MapReduce or MapReducing) for indexing and querying the database. Map extracts data while reduce aggregates data. Unlike RDBMS SQL queries, MapReduce can be distributed among multiple nodes making it scalable and fast.
 - CouchDB supports offline scenarios.  Replicate data to your mobile application.  Enter data locally while flying cross-country.  Sync the data when you land.  
 
 ## Relational or NoSQL
@@ -32,8 +29,5 @@ Factors that favor NoSQL:
 
 ## All the URLs
 
-- http://guide.couchdb.org/editions/1/en/index.html
-- [Getting Started with CouchDB](http://code.tutsplus.com/articles/getting-started-with-couchdb--net-18801)
--
--
--
+- [CouchDB the Definitive Guide](http://guide.couchdb.org/editions/1/en/index.html)
+- [CouchDB Docs](http://docs.couchdb.org/en/1.6.1/index.html)

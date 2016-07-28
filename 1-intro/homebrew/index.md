@@ -1,6 +1,6 @@
 # Installing CouchDB using homebrew
 
-Homebrew is the missing package manage for OSX.
+Homebrew is the missing package manager for OSX.
 
 - Nav to [Homebrew](http://brew.sh/) and follow the **Install Homebrew** instructions.
 
