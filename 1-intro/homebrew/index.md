@@ -1,0 +1,11 @@
+# Installing CouchDB using homebrew
+
+Homebrew is the missing package manage for OSX.
+
+- Nav to [Homebrew](http://brew.sh/) and follow the **Install Homebrew** instructions.
+
+- After Homebrew installs successfully, install CouchDB using by issuing the following command in Terminal/Command Prompt/Bash/iTerm:
+
+```
+$ brew install couchdb
+```
