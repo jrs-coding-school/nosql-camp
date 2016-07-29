@@ -1,0 +1,30 @@
+{
+    "store": "5410",
+    "store_city": "Mount Pleasant",
+    "store_state": "SC",
+    "store_phone": "843 388 1550",
+    "pharmacy_phone": "843 388 1551",
+    "register": "1020312",
+    "cashier": "Alexis",
+    "date": "2016-04-05T14:30Z",
+
+    "total_saved": 1.21,
+    "debit_card_last4": 8892,
+    "approval_code": "069093",
+
+    "tax": 0.59,
+    "balance": 39.60,
+    "debit": 39.60,
+    "change": 0.00,
+    "number_items_sold": 14,
+    "items_sold": [{
+        "desc": "DIAMOND WALNUTS",
+        "price": 2.99
+    }, {
+        "desc": "STARKIST POUCH",
+        "price": 1.49
+    }, {
+        "desc": "STARKIST POUCH",
+        "price": 1.49
+    }]
+}

@@ -70,7 +70,7 @@ $ curl -X GET http://127.0.0.1:5984/_all_dbs
 
 ## Create a database
 
-We can use the http `PUT` verb to create a new database and a second command to  list the database again.
+We can use the http `PUT` verb to create a new database and a second command to list the database again.
 
 ```
 $ curl -X PUT http://127.0.0.1:5984/test
