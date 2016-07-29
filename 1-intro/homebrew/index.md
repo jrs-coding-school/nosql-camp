@@ -1,4 +1,4 @@
-# Installing CouchDB using homebrew
+# Installing CouchDB using Homebrew
 
 Homebrew is the missing package manager for OSX.
 
