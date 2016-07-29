@@ -1,0 +1,45 @@
+{
+    "firstname": "Steve",
+    "lastname": "Jobs"
+}
+
+{
+    "firstname": "Taylor",
+    "lastname": "Swift",
+    "issued_state": "CA",
+    "suspended": false,
+    "violations": [{
+        "id": "100",
+        "date": "2016-04-05T14:30Z",
+        "points": "2"
+    }, {
+        "id": "101",
+        "date": "2016-05-05T17:23Z",
+        "points": "1"
+    }]
+}
+
+
+{
+    "firstname": "Bieber",
+    "lastname": "Justin",
+    "issued_state": "FL",
+    "suspended": true,
+    "violations": [{
+        "id": "200",
+        "date": "2016-06-30T17:30Z",
+        "points": "2"
+    }, {
+        "id": "201",
+        "date": "2016-07-02T01:30Z",
+        "points": "5"
+    }, {
+        "id": "202",
+        "date": "2016-07-04T15:01Z",
+        "points": "5"
+    }, {
+        "id": "203",
+        "date": "2016-07-05T01:16Z",
+        "points": "5"
+    }]
+}
