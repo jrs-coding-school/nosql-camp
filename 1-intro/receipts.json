@@ -1,4 +1,5 @@
 {
+    "doc_type": "receipt",
     "store": "5410",
     "store_city": "Mount Pleasant",
     "store_state": "SC",
@@ -7,16 +8,15 @@
     "register": "1020312",
     "cashier": "Alexis",
     "date": "2016-04-05T14:30Z",
-
-    "total_saved": 1.21,
+    "advantage_card": false,
+    "total_saved": 0.00,
     "debit_card_last4": 8892,
     "approval_code": "069093",
-
-    "tax": 0.59,
-    "balance": 39.60,
-    "debit": 39.60,
+    "tax": 0.08,
+    "balance": 5.97,
+    "debit": 5.97,
     "change": 0.00,
-    "number_items_sold": 14,
+    "number_items_sold": 3,
     "items_sold": [{
         "desc": "DIAMOND WALNUTS",
         "price": 2.99
@@ -26,5 +26,33 @@
     }, {
         "desc": "STARKIST POUCH",
         "price": 1.49
+    }]
+}
+
+{
+    "doc_type": "receipt",
+    "store": "5409",
+    "store_city": "Mount Pleasant",
+    "store_state": "SC",
+    "store_phone": "843 388 1550",
+    "pharmacy_phone": "843 388 1551",
+    "register": "1020200",
+    "cashier": "Jimmy",
+    "date": "2016-07-29T12:32Z",
+    "advantage_card": false,
+    "total_saved": 0.00,
+    "debit_card_last4": 8892,
+    "approval_code": "065088",
+    "tax": 0.07,
+    "balance": 5.58,
+    "debit": 5.58,
+    "change": 0.00,
+    "number_items_sold": 2,
+    "items_sold": [{
+        "desc": "ALMOND BREEZE",
+        "price": 1.59
+    }, {
+        "desc": "BOUNTY TOWELS",
+        "price": 3.99
     }]
 }
