@@ -31,7 +31,7 @@
 
 {
     "doc_type": "receipt",
-    "store": "5409",
+    "store": "5410",
     "store_city": "Mount Pleasant",
     "store_state": "SC",
     "store_phone": "843 388 1550",
@@ -53,6 +53,35 @@
         "price": 1.59
     }, {
         "desc": "BOUNTY TOWELS",
+        "price": 3.99
+    }]
+}
+
+
+{
+    "doc_type": "receipt",
+    "store": "5409",
+    "store_city": "Mount Pleasant",
+    "store_state": "SC",
+    "store_phone": "843 388 3222",
+    "pharmacy_phone": "843 388 3222",
+    "register": "1021188",
+    "cashier": "Steve",
+    "date": "2016-08-01T17:03Z",
+    "advantage_card": true,
+    "advantage_number": 12837834,
+    "total_saved": 0.20,
+    "approval_code": "021008",
+    "tax": 0.06,
+    "balance": 3.18,
+    "cash": 5.00,
+    "change": 1.82,
+    "number_items_sold": 2,
+    "items_sold": [{
+        "desc": "MTN DEW KICKSTART",
+        "price": 1.59
+    }, {
+        "desc": "MTN DEW KICKSTART",
         "price": 3.99
     }]
 }
