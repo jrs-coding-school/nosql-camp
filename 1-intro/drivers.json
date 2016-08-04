@@ -6,7 +6,7 @@
 {
     "firstname": "Taylor",
     "lastname": "Swift",
-    "issued_state": "CA",
+    "issued_state": "SC",
     "suspended": false,
     "violations": [{
         "id": "100",
@@ -21,9 +21,9 @@
 
 
 {
-    "firstname": "Bieber",
-    "lastname": "Justin",
-    "issued_state": "FL",
+    "firstname": "Justin",
+    "lastname": "Bieber",
+    "issued_state": "SC",
     "suspended": true,
     "violations": [{
         "id": "200",
