@@ -1,0 +1,21 @@
+{
+    "firstname": "Tim",
+    "lastname": "Smith",
+    "issued_state": "SC",
+    "suspended": true,
+    "license": "343123",
+    "plates": [{
+        "tag_number": "ABE463"
+    }, {
+        "tag_number": "TIMMAY"
+    }],
+    "violations": [{
+        "id": "1",
+        "date": "2016-07-01T15:30Z",
+        "points": "3"
+    }, {
+        "id": "2",
+        "date": "2016-07-10T16:30Z",
+        "points": "2"
+    }]
+}

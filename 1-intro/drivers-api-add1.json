@@ -1,0 +1,29 @@
+{
+    "firstname": "Jerry",
+    "lastname": "Seinfeld",
+    "issued_state": "SC",
+    "suspended": true,
+    "license": "12345",
+    "plates": [{
+        "tag_number": "GLX123"
+    }, {
+        "tag_number": "DAWGS1"
+    }],
+    "violations": [{
+        "id": "1",
+        "date": "2016-05-01T12:30Z",
+        "points": "2"
+    }, {
+        "id": "2",
+        "date": "2016-05-02T01:30Z",
+        "points": "2"
+    }, {
+        "id": "4",
+        "date": "2016-06-03T19:01Z",
+        "points": "2"
+    }, {
+        "id": "3",
+        "date": "2016-06-05T17:16Z",
+        "points": "1"
+    }]
+}
