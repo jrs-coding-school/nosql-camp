@@ -49,3 +49,5 @@ $ curl http://www.tacoboy.net/
 - [CouchDB Docs](http://docs.couchdb.org/en/1.6.1/index.html)
 - [curl](https://curl.haxx.se/docs/manpage.html)
 - [JSON Primer](http://guide.couchdb.org/editions/1/en/json.html)
+
+[Home](/) | [Next](/2-DBs-and-Documents)
