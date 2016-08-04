@@ -30,7 +30,6 @@ If couch is running, you'll see something like this, but it wont look as pretty:
         "version": "1.6.1_6"
     }
 }
-
 ```
 
 ## GET a list of databases (/\_all_dbs)
@@ -74,30 +73,30 @@ $ curl -X GET http://127.0.0.1:5984/_all_dbs
 
 ## Futon - the built-in administration interface
 - Open Futon:  [http://127.0.0.1:5984/_utils/](http://127.0.0.1:5984/_utils/)
-- Note the listing of database.
+- Note the listing of databases.
 
 ## Creating a database and documents with Futon
 - Create a database named **drivers** that track driver licenses and the number of violations accumulated.
 - Create a **New Document** within the new database.
 - Using Futon, add a driver by adding `firstname` and `lastname` fields.
 
-Documents values must be entered as valid JSON.
+> Documents values must be entered as valid JSON.
 
-- Note the `_id` field and value is populated for you.  
-    - This is a UUID. Don't change this value.
+- Note the `_id` field and value is populated for you.  This is a UUID. Don't change this value.
 
-In the future, you will write applications that interact with CouchDB.  In your application's code, you will want to generate the UUID yourself.  This will help prevent duplicate documents if the first call fails due to a network issue, for example.  
+> In the future, you will write applications that interact with CouchDB.  In your application's code, you will want to generate the UUID yourself.  This will help prevent duplicate documents if the first call fails due to a network issue, for example.  
 
 - Save the document.  Note the `_rev` field.  Note how the value starts with `1-`
 
-When it comes time to update a document you will need to provide the _most recent_ `_rev` value in order to successfully save your changes.
+You will eventually write applications that will need to update existing documents within a database.  You will need to provide the _most recent_ `_rev` value in order to successfully save your changes.
 
-- Update the document by adding a `middlename` field. Save the document.
-    - New updates are _appended_ to the database and _do not overwrite_ the old version.  
-    - Each new update to a document with a pre-existing ID will _add a new revision_ with a new `_rev` value that starts with a value of `2`.  
-    - Go to the previous version. Note the `-rev` values.
+- Update the document by adding a `middlename` field. Save the document.  
+
+New updates are _appended_ to the database and _do not overwrite_ the old version.  Each new update to a document with a pre-existing ID will _add a new revision_ with a new `_rev` value that starts with a value of `2-`.  
+
+- Go to the previous version. Note the `-rev` values.
 - Revision numbers are used by CouchDB to track changes for replication between databases.  
-- Add another driver. See **drivers.json**.
+- Using Futon, add another driver. (See **drivers.json**.)
 - Add a third driver with violations.
 
 ## List all documents for the specified database (/\_all_docs)
