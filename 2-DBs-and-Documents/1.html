@@ -16,10 +16,27 @@
 
 <body>
   <div id="code">
-    console.log('Hello World')
+
+      var db = new PouchDB('todos');
+
+      function addTodo(text) {
+        var todo = {
+          _id: new Date().toISOString(),
+          title: text,
+          completed: false
+        };
+
+        db.put(todo, function callback(err, result) {
+          if (!err) {
+            console.log('KabaM! Successfully PUT a todo!');
+          }
+        });
+      }
+
   </div>
 
 
-  <script src="https://embed.tonicdev.com" data-element-id="[code]"></script>
+  <script src="https://embed.tonicdev.com" data-element-id="code"></script>
+
 </body>
 </html>
