@@ -3,7 +3,7 @@
 
 ## Couch databases
 
-- Couch can hold multiple databases
+CouchDB is a 
 
 
 ## Using the API
