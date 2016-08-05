@@ -11,13 +11,13 @@
 -  Couch utilizes map and reduce (MapReduce or MapReducing) for indexing and querying the database. Map extracts data while reduce aggregates data. Unlike RDBMS SQL queries, MapReduce can be distributed among multiple nodes making it scalable and fast.
 - CouchDB supports offline scenarios.  Replicate data to your mobile application.  Enter data locally while flying cross-country.  Sync the data when you land.  
 
-## Relational or NoSQL 
+## Relational or NoSQL
 
 Factors that favor NoSQL:
 
 - Is the problem domain well known? Do you truly know the schema up front? Do you need to quickly modify data behind an app and minimize disruption to users?
 - Will you have a large volume and velocity of incoming data? People, machines, IoT, devices sending data requires processing incoming data at speed.
-- Do you need to gather data from distributed locations, such as multiple point of sale applications?
+- Do you need to gather data from distributed locations, such as multiple point of sale applications? 
 - Do you have a high availability, 'always-on' need.  Caching application objects, search results, session info, and common web pages will make your apps responsive and help prevent the back end of your application from bogging down under high demand.
 - Do you need to dynamic scalability (scale up or down) to handle seasonal commerce swings or user activity spikes like those found in social gaming?
 - Does your system truly handle real world documents, such as invoices?
