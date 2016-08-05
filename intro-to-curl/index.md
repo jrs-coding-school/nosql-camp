@@ -11,7 +11,7 @@
 -  Couch utilizes map and reduce (MapReduce or MapReducing) for indexing and querying the database. Map extracts data while reduce aggregates data. Unlike RDBMS SQL queries, MapReduce can be distributed among multiple nodes making it scalable and fast.
 - CouchDB supports offline scenarios.  Replicate data to your mobile application.  Enter data locally while flying cross-country.  Sync the data when you land.  
 
-## Relational or NoSQL
+## Relational or NoSQL 
 
 Factors that favor NoSQL:
 
