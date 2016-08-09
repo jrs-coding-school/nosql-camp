@@ -207,5 +207,12 @@ The PouchDB API is asynchronous.  That means you'll have to use callbacks, promi
 - Create a driver document with the API
 - Retrieving a fresh UUID
 
+## All the URLs
 
-[Home](/)  |  [Next](/)  |   [Installing CouchDB and curl](/install)
+- [Installing CouchDB and curl](/install/)
+- [CouchDB the Definitive Guide](http://guide.couchdb.org/editions/1/en/index.html)
+- [CouchDB Docs](http://docs.couchdb.org/en/1.6.1/index.html)
+- [curl](https://curl.haxx.se/docs/manpage.html)
+- [JSON Primer](http://guide.couchdb.org/editions/1/en/json.html)
+
+[Home](/)  |  [Next](/)
