@@ -1,29 +1,44 @@
-# Introduction to CouchDB
+# Databases and Documents
+
+## What you will learn
+
+By completing this module you will be able to:
+- Define CouchDB and PouchDB
+- Describe the factors that favor NoSQL databases.
+- Describe where specific types of databases fit within the CAP theorem.
+- Manage CouchDB databases and documents with Futon.
+- Manage CouchDB with it's Hypertext Transfer Protocol (HTTP) Application Programming Interface (API) using a Command Line Interface (CLI).
+- Manage PouchDB/CouchDB databases and documents with PouchDB's JavaScript API.
 
 ## What is CouchDB?
 
-> Unlike an RDBMS, NoSQL is schema free -- you don't need to decide the structure up front.
+> Unlike a relational database management system (RDBMS), NoSQL is schema free -- you don't need to decide the structure of the data up front.
 
-- CouchDB is a NoSQL (not only SQL) database management system (DBMS) that stores JSON documents within a database. In fact, everything is stored as JSON.  
-- Unlike a relational DBMS (RDBMS), CouchDB is schema-free. You don't design the tables, columns, data types up-front.
+- CouchDB (or Couch) is a NoSQL (not only SQL) database management system (DBMS) that stores JSON documents within a database. In fact, everything is stored as JSON.  
+- Unlike a relational database, CouchDB is schema-free. You _don't_ design the tables, columns, data types up-front.
 - CouchDB allows you to easily replicate your data on your own machine or across computers around the world.  This promotes fault tolerance.
-- A RESTful API is baked into its DNA. Use the API to do anything.  Futon uses the API do manage things like creating database, editing JSON documents, running queries, triggering replication...
--  Couch utilizes map and reduce (MapReduce or MapReducing) for indexing and querying the database. Map extracts data while reduce aggregates data. Unlike RDBMS SQL queries, MapReduce can be distributed among multiple nodes making it scalable and fast.
+- A RESTful (REST-Representational State Transfer) API is baked into its DNA. Use the API to do anything.  Typically used with HTTP to provide a stateless design ofr networked application.  Futon, an administrative website for CouchDB, uses the API do manage things like creating database, editing JSON documents, running queries, triggering replication...
+-  Couch utilizes map and reduce (MapReduce or MapReducing) for indexing and querying the database. Map extracts data while reduce aggregates data. Unlike RDBMS SQL queries, MapReduce can be distributed among multiple nodes making it scalable and fast. Map and reduce functions are written is JavaScript.
 - CouchDB supports offline scenarios.  Replicate data to your mobile application.  Enter data locally while flying cross-country.  Sync the data when you land.  
 
 ## What is PouchDB?
- 
-Pouch is a JavaScript database that is inspired by CouchDB.  It runs within the web browser.  This enables you as the developer to store data locally within the browser.  This is especially useful when the users of your applications are working offline.  
+
+PouchDB (Pouch) is a JavaScript database that is inspired by CouchDB.  It runs within the web browser.  This enables you as the developer to store data locally within the browser.  This is especially useful when the users of your applications are working offline.  
 
 > It is very easy to synchronize the data with PouchDB with CouchDB, once your users are back online.  The synchronization is two-way.  Changes to CouchDB can be sync'd with Pouch, as well.  
 
 PouchDB runs quite well in Node.js.  You can use Pouch's JavaScript Application Programming Interface (API) to talk directory to databases that reside in either CouchDB or PouchDB.  [more...](https://pouchdb.com/learn.html).  
 
+## CAP Theorem
+
+TODO
+
 ## Relational or NoSQL
 
 Factors that favor NoSQL:
 
-- Is the problem domain well known? Do you truly know the schema up front? Do you need to quickly modify data behind an app and minimize disruption to users?
+- Is the problem domain well known? Do you truly know the schema up front?
+- Do you need to quickly modify data behind an app and minimize disruption to users?
 - Will you have a large volume and velocity of incoming data? People, machines, IoT, devices sending data requires processing incoming data at speed.
 - Do you need to gather data from distributed locations, such as multiple point of sale applications?
 - Do you have a high availability, 'always-on' need.  Caching application objects, search results, session info, and common web pages will make your apps responsive and help prevent the back end of your application from bogging down under high demand.
@@ -41,11 +56,21 @@ Factors that favor NoSQL:
 
 curl is a command line interface (CLI) which means you have to use a command-line tool such as Terminal, iTerm, bash, etc.  Windows users can use the [Command Prompt](http://www.digitalcitizen.life/7-ways-launch-command-prompt-windows-7-windows-8). CLI's work at a lower level than your operating system and you will have more control over the machine. But, it's less user-friendly.  
 
-CouchDB has an API that you can talk to with your code via HTTP.  By creating HTTP requests, you can tell Couch to create databases, save data, query data
+Tacoboy is a fun place to eat.  Just look at their menu: ([http://www.tacoboy.net/menu.html](http://www.tacoboy.net/menu.html)).  When you use an HTTP client (such as Chrome) to browse a website, the client must first establish a TCP connection with the HTTP "Web" server using the IP address associated with the host part of the URL (www.tacoboy.net). The connection is made, by default, on port 80.  The browser issues a request to download a resource (usually a web page) using the host portion of the URL (www.tacoboy.net) and a path to the resource (/menu.html).  Behind the scenes, the browser issues a `HTTP GET` request to retrieve and download the HTML to the browser. Assuming a successful response, the browser renders the HTML into something that looks delicious.
+
+You can issue an HTTP GET with curl, too.  :
+
+```
+$ curl http://www.tacoboy.net/
+```
+
+> Notice the `$` in the code sample above?  We use the Linux/OS X convention of the dollar sign to denote the  prompt for your commands.  This is where you'll type your commands in the CLI. In Windows environments, you'll see something similar to  `C:\>`.
+
+CouchDB has an API that you can talk to with your code via HTTP.  By creating HTTP requests, you can tell Couch to create databases, save data, query data, etc.
 
 ### Demo: Talking to CouchDB via HTTP with curl
 
-- I have CouchDB installed on my computer. Using a CLI such as Terminal in OS X or the Command Prompt in Windows, run the following `curl` command to test whether CouchDB is running:
+- Let's pretend that you have CouchDB installed. Using a CLI such as Terminal in OS X or the Command Prompt in Windows, run the following `curl` command to test whether CouchDB is running:
 
     ```
     $ curl http://127.0.0.1:5984/
@@ -63,7 +88,6 @@ CouchDB has an API that you can talk to with your code via HTTP.  By creating HT
         }
     }
     ```
-
 - Create a database with the API and curl
 
     We can use the http `PUT` verb to create a new database named `test` and a second command to list the database again.
@@ -168,8 +192,6 @@ Let's add another driver using a fresh UUID and the **drivers-api-add2.json** fi
 $ curl -X PUT http://127.0.0.1:5984/drivers/2791133276c33db1015c7adf81008dc9 -d "@1-intro/drivers-api-add2.json"
 ```
 
-
-
 ## Creating documents with the PouchDB JavaScript API
 
 You'll need to use the PouchDB JavaScript API to communicate with PouchDB.  You can use the same API to talk to CouchDB, as well.
@@ -186,6 +208,4 @@ The PouchDB API is asynchronous.  That means you'll have to use callbacks, promi
 - Retrieving a fresh UUID
 
 
-
-
-[Home](/) | [Prev](/1-intro) | [Next](/3-tbd) | [Demo](/demo.md)
+[Home](/)  |  [Next](/)  |   [Installing CouchDB and curl](/install)
