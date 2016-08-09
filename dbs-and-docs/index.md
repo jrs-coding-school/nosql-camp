@@ -12,7 +12,7 @@
 - CouchDB supports offline scenarios.  Replicate data to your mobile application.  Enter data locally while flying cross-country.  Sync the data when you land.  
 
 ## What is PouchDB?
-
+ 
 Pouch is a JavaScript database that is inspired by CouchDB.  It runs within the web browser.  This enables you as the developer to store data locally within the browser.  This is especially useful when the users of your applications are working offline.  
 
 > It is very easy to synchronize the data with PouchDB with CouchDB, once your users are back online.  The synchronization is two-way.  Changes to CouchDB can be sync'd with Pouch, as well.  
