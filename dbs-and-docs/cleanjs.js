@@ -1,17 +1,17 @@
-/*jshint esversion: 6 */
-let driver = {firstName: 'Jeff', lastName: 'Sanchez'};
+module.exports = bulkAddDriverTest;
 
-var createDB = function(dbName, data) {
-    let db = new PouchDB(dbName, {adapter: 'memory'});
+//b: { ok: true, index: 2, total_rows: 5, doc_type: "driver"  }
 
-
-    db.put(driver, function(err, response) {
-        if (err) { return console.log(err); }
-        return response;
-     });
-};
-
-
-var x = createDB('text', driver);
-
-console.log(x);
+function bulkAddDriverTest(a, b) {
+    return function(err, res) {
+        if (err === a &&
+            res.total_rows === b.total_rows &&
+            res.rows[0].doc.doc_type === b.type) {
+            console.log('Success!  Done.');
+            console.log(res);
+        } else {
+            console.log('Problem! There was an error:');
+            console.log(err);
+        }
+    };
+}

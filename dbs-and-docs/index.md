@@ -192,6 +192,34 @@ Let's add another driver using a fresh UUID and the **drivers-api-add2.json** fi
 $ curl -X PUT http://127.0.0.1:5984/drivers/2791133276c33db1015c7adf81008dc9 -d "@1-intro/drivers-api-add2.json"
 ```
 
+## Creating a database with the PouchDB JavaScript API
+
+```
+new PouchDB([name], [options])
+```
+
+The following creates a local database named `test`.  If the `test` database already exists, the method will open the database:
+
+```
+new PouchDB('test')
+```
+
+The actual database used by PouchDB _depends on how you are using it_.
+
+- In a Web browser, either IndexedDB or WebSQL is used.
+- In Node.js, LevelDB is used.
+
+See [Adapters](https://pouchdb.com/adapters.html).
+
+- [Live Sample: Let's see what tonic uses](https://tonicdev.com/tripott/dbs-and-docs-demo-adapter)
+
+- Demo: Let's see what NodeJS uses.  With the source and dependencies for this course downloaded to the instructors machine, move over to the appropriate directory and run the **adaptorinfo.js**
+
+```
+$ cd dbs-and-docs
+$ node adaptorinfo.js
+```
+
 ## Creating documents with the PouchDB JavaScript API
 
 You'll need to use the PouchDB JavaScript API to communicate with PouchDB.  You can use the same API to talk to CouchDB, as well.
@@ -199,17 +227,36 @@ You'll need to use the PouchDB JavaScript API to communicate with PouchDB.  You 
 The PouchDB API is asynchronous.  That means you'll have to use callbacks, promises, and async functions. [more...](https://pouchdb.com/api.html).  Let's try adding a document.  
 
 - You can use `put()` or `post()` to create a document within the database
-- The basic rule of thumb is: `put()` new documents with an `_id`, `post()` new documents without an   `_id`.  With `put()` you control the value for the `_id`, _just make sure it is unique._
-- When you use `post()` the database will generate a random UUID for the `_id` value.
-- `allDocs()` can be used to sort documents by `_id`, so if you use `put()`.
+- The basic rule of thumb is: If you use `put()` to add a document, you will need to provide a value for the `_id`. You can`post()` new documents without an `_id`. With `post()`, the database will generate a random UUID for the `_id` value.  
+- `put()` is preferred.  With `put()` you control the value for the `_id`, _just make sure it is unique._ `allDocs()` can be used to sort documents by `_id`.
+
+- [Live Sample](https://tonicdev.com/tripott/dbs-and-docs-demo-putdoc)
+
+### Exercises
+
+0. [Adding a document](/dbs-and-docs/1)
+
+## Adding a batch of documents
+
+You can add multiple documents to the database with a single call to `bulkDocs()` by passing a JSON array.  
+
+- Remember, you have to choose whether you provide an `_id` parameter on each document within the array.  If you don't the database will create one for you.  
+
+- [Live Sample](https://tonicdev.com/tripott/dbs-and-docs-demo1-addbulkdocs)
+
+### Exercises
+
+0. [Adding multiple documents](/dbs-and-docs/2)
+
+## Updating documents
 
 
-- Create a driver document with the API
-- Retrieving a fresh UUID
+
+
 
 ## All the URLs
 
-- [Installing CouchDB and curl](/install/)
+- [Installing CouchDB and curl](/install/index)
 - [CouchDB the Definitive Guide](http://guide.couchdb.org/editions/1/en/index.html)
 - [CouchDB Docs](http://docs.couchdb.org/en/1.6.1/index.html)
 - [curl](https://curl.haxx.se/docs/manpage.html)
