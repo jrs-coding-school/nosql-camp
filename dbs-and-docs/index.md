@@ -236,7 +236,7 @@ The PouchDB API is asynchronous.  That means you'll have to use callbacks, promi
 
 0. [Adding a document](/dbs-and-docs/1)
 
-## Adding a batch of documents
+## Create a batch of documents
 
 You can add multiple documents to the database with a single call to `bulkDocs()` by passing a JSON array.  
 
@@ -246,7 +246,7 @@ You can add multiple documents to the database with a single call to `bulkDocs()
 
 ### Exercises
 
-0. [Adding multiple documents](/dbs-and-docs/2)
+0. [Create a batch of documents](/dbs-and-docs/2)
 
 ## Updating documents
 
