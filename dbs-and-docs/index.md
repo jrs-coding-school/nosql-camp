@@ -251,7 +251,19 @@ You can add multiple documents to the database with a single call to `bulkDocs()
 ## Updating documents
 
 
+## Designing searchable doc IDs
 
+> Before attempting this exercise, you must have read and performed the steps within the `relief-student` repo's README.md:  https://github.com/jrs-innovation-center/relief-student
+
+Each document in Pouch/Couch has an ID. This ID is unique per database. You are free to choose any string to be the ID.  One strategy is use  Universally (or Globally) Unique IDentifier (UUID).  A UUID is a randomly generated number with VERY low collision probability.  This prevents two people from ever creating two different documents with the same ID.  Another strategy is to leverage the ID value to create useful queries via the `allDocs()`.  Yet another strategy is to combine a UUID with a searchable ID. As you design the documents for the database ask yourself, "What will be some popular questions asked on my database?".
+
+> By thinking ahead and designing a searchable naming scheme for your document IDs, you can support different querying and sorting requests.  This strategy can limit the number of Map/Reduce views in your database.
+
+- [Live Sample](https://tonicdev.com/tripott/dbs-and-docs-demo-searchable-ids)
+
+### Exercises
+
+0. [Designing Searchable Document IDs](/dbs-and-docs/8)
 
 
 ## All the URLs
