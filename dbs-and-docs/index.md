@@ -177,7 +177,6 @@ We will need a new UUID to uniquely identify each new driver.  Couch's API provi
 ```
 $ curl -X GET http://127.0.0.1:5984/_uuids
 ```
-
 You can add the returned UUID in the resource part of the URL to specify the location of the new driver in the database.   
 
 We're using the `-d` or `--data` option to specify the data.  Starting with the `@` to specify a file.  
@@ -189,7 +188,7 @@ $ curl -X PUT http://127.0.0.1:5984/drivers/2791133276c33db1015c7adf8100931b -d 
 Let's add another driver using a fresh UUID and the **drivers-api-add2.json** file.
 
 ```
-$ curl -X PUT http://127.0.0.1:5984/drivers/2791133276c33db1015c7adf81008dc9 -d "@1-intro/drivers-api-add2.json"
+$ curl -X PUT http://127.0.0.1:5984/drivers/2791133276c33db1015c7adf81008dc9 -d "@drivers-api-add2.json"
 ```
 
 ## Creating a database with the PouchDB JavaScript API
@@ -228,7 +227,8 @@ The PouchDB API is asynchronous.  That means you'll have to use callbacks, promi
 
 - You can use `put()` or `post()` to create a document within the database
 - The basic rule of thumb is: If you use `put()` to add a document, you will need to provide a value for the `_id`. You can`post()` new documents without an `_id`. With `post()`, the database will generate a random UUID for the `_id` value.  
-- `put()` is preferred.  With `put()` you control the value for the `_id`, _just make sure it is unique._ `allDocs()` can be used to sort documents by `_id`.
+- `put()` is preferred.  With `put()` you control the value for the `_id`, _just make sure it is unique._
+- `allDocs()` can be used to sort documents by `_id`.
 
 - [Live Sample](https://tonicdev.com/tripott/dbs-and-docs-demo-putdoc)
 
@@ -248,12 +248,27 @@ You can add multiple documents to the database with a single call to `bulkDocs()
 
 0. [Create a batch of documents](/dbs-and-docs/2)
 
-## Updating documents
+## Fetching a batch of documents
+
+- Use `allDocs()` to perform simple queries on the `_id` property.
+- Results are sorted by `_id`.
+- The call to `allDocs()` takes an options object and a callback.
+- Options allow you to do things like:
+    - return the document in the response:  
+        `{include_docs: true}`
+    - get documents within a range using `startkey` and `endkey`.
+    - provide pagination to your applications by `limit`ing the maximum amount of docs to return and `skip`ping a specified amount of docs.
+    - See pagination recipe for additional pagination information and strategies.  http://docs.couchdb.org/en/latest/couchapp/views/pagination.html
 
 
-## Designing searchable doc IDs
+- [Live Sample](https://tonicdev.com/tripott/dbs-and-docs-demo-bulkget)
 
-> Before attempting this exercise, you must have read and performed the steps within the `relief-student` repo's README.md:  https://github.com/jrs-innovation-center/relief-student
+### Exercises
+
+0. [Fetching a batch of documents](/dbs-and-docs/3)
+0. [Fetching documents within a range](/dbs-and-docs/4)
+
+## Designing searchable document IDs
 
 Each document in Pouch/Couch has an ID. This ID is unique per database. You are free to choose any string to be the ID.  One strategy is use  Universally (or Globally) Unique IDentifier (UUID).  A UUID is a randomly generated number with VERY low collision probability.  This prevents two people from ever creating two different documents with the same ID.  Another strategy is to leverage the ID value to create useful queries via the `allDocs()`.  Yet another strategy is to combine a UUID with a searchable ID. As you design the documents for the database ask yourself, "What will be some popular questions asked on my database?".
 
@@ -263,7 +278,58 @@ Each document in Pouch/Couch has an ID. This ID is unique per database. You are 
 
 ### Exercises
 
-0. [Designing Searchable Document IDs](/dbs-and-docs/8)
+0. [Designing Searchable Document IDs](/dbs-and-docs/5)
+
+## Updating a document
+
+CouchDB uses an optimistic concurrency model.  Whoever saves a change to a document first, wins.
+
+To change a document, first grab the entire document out of CouchDB, make your changes to the JSON / object, and save the entire new revision (or version) of that document back into CouchDB. Each revision is identified by a new `_rev` value.
+
+When you retrieve a document, couch returns the `_id` and `_rev`.
+
+```
+{"ok":true,"id":"6e1295ed6c29495e54cc05947f18c8af","rev":"2-2739352689"}
+```
+
+When it is time to update a document, you send the document revision value (`_rev`) along with the rest of your data in the update.  You are optimistic that no one else has updated your record in the meantime.  If they have, the `_rev` will be a different value and Couch will reject your update.  
+
+```
+{"error":"conflict","reason":"Document update conflict."}
+```
+
+To fix, add the latest revision number of your document to the JSON:
+
+```
+curl -X PUT http://127.0.0.1:5984/albums/6e1295ed6c29495e54cc05947f18c8af -d '{"_rev":"1-2902191555","title":"There is Nothing Left to Lose", "artist":"Foo Fighters","year":"1997"}'
+```
+
+- [Live Sample](https://tonicdev.com/tripott/dbs-and-docs-demo-update)
+
+### Exercises
+
+0. [Updating a document](/dbs-and-docs/6)
+
+
+## Deleting documents
+
+There are two ways to delete documents with the API.  One is to use the `db.delete()` method.  The other is to use `db.put()` with the `{_deleted: true}`.  Why?  See https://pouchdb.com/api.html#filtered-replication
+
+- [Live Sample](https://tonicdev.com/tripott/dbs-and-docs-demo-delete)
+
+### Exercises
+
+0. [Deleting a document](/dbs-and-docs/7)
+
+## Getting documents in bulk
+
+`db.bulkGet()` allows you to provide a set of `id`s and `rev`s and retrieve matching documents using `option.docs`.
+
+- [Live Sample](https://tonicdev.com/tripott/dbs-and-docs-demo-bulkget)
+
+### Exercises
+
+0. [Getting docuemnts in bulk](/dbs-and-docs/8)
 
 
 ## All the URLs
