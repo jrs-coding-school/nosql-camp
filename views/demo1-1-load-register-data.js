@@ -88,7 +88,7 @@ let receipts = [{
         balance: 2.99,
         cash: 5.00,
         change: 2.01,
-        numberItemsSoldtems_sold: 1,
+        numberItemsSold: 1,
         itemsSold: [{
             desc: "LAYS CHIPS",
             price: 2.99
@@ -104,7 +104,7 @@ let receipts = [{
         balance: 3.49,
         cash: 5.00,
         change: 1.51,
-        numberItemsSoldtems_sold: 1,
+        numberItemsSold: 1,
         itemsSold: [{
             desc: "Cheetos",
             price: 3.43
@@ -120,7 +120,7 @@ let receipts = [{
         balance: 4.39,
         cash: 10.00,
         change: 5.61,
-        numberItemsSoldtems_sold: 1,
+        numberItemsSold: 1,
         itemsSold: [{
             desc: "Best Buy Milk",
             price: 4.30
@@ -136,7 +136,7 @@ let receipts = [{
         balance: 12.40,
         debit: 12.40,
         change: 0.00,
-        numberItemsSold: 2,
+        numberItemsSold: 4,
         items_sold: [{
             desc: "Red Delicious Apple",
             price: 0.30

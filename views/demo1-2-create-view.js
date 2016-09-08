@@ -54,7 +54,7 @@ const designDocreceipts_by_StoreRegister = {
         receipts_by_StoreRegister: {
             map: function(doc) {
                 if (doc.type === 'receipt') {
-                    emit([doc.store_id, doc.register], doc.balance);
+                    emit([doc.store_id, doc.register], {total: doc.balance, numberItemsSold: doc.numberItemsSold});
                 }
             }.toString()
         }
@@ -83,7 +83,7 @@ const designDocreceipts_by_date = {
                         receiptDate.getUTCHours(),
                         receiptDate.getUTCMinutes()
                         ],
-                        doc.balance);
+                         {total: doc.balance, numberItemsSold: doc.numberItemsSold});
                 }
             }.toString()
         }
@@ -91,14 +91,15 @@ const designDocreceipts_by_date = {
 }
 addView(designDocreceipts_by_date);
 
-
-// Return stores and receipts.
+///////////////////////////////////////////////
+//       Return stores and receipts.
+///////////////////////////////////////////////
 // View functions specify a key and a value to be returned for each row.
 // CouchDB collates (sorts) the view rows by this key.
 // The key is composed of a store _id and a sorting token.
 // Because the key for receipt documents begins with the _id of a store document,
 // all the orders will be sorted by store.
-// Because the sorting token for stores (0) is lower than the token for receipts (1), 
+// Because the sorting token for stores (0) is lower than the token for receipts (1),
 // the store document will come before the associated receipts.
 // The values 0 and 1 for the sorting token are arbitrary.
 const designDocStoresAndReceipts = {
@@ -116,5 +117,71 @@ const designDocStoresAndReceipts = {
         }
     }
 }
-
 addView(designDocStoresAndReceipts);
+
+///////////////////////////////////////////////
+//       Sum receipts by date
+///////////////////////////////////////////////
+// Compute a value over multiple documents
+// Using the results of the map function, reduce the list to a single value
+// Leverage the built in reduce functions, such as sum()
+// http://docs.couchdb.org/en/latest/couchapp/ddocs.html#reducefun
+// http://docs.couchdb.org/en/latest/couchapp/views/nosql.html#mapreduce-functions
+const designDocReduceReceiptsTotals_by_date = {
+    _id: "_design/receiptsTotals_by_date",
+    language: "javascript",
+    views: {
+        receiptsTotals_by_date: {
+            map: function(doc) {
+                if (doc.type === 'receipt') {
+                    const receiptDate = new Date(doc.date)
+                    emit([receiptDate.getUTCFullYear(),
+                        receiptDate.getUTCMonth() + 1,
+                        receiptDate.getUTCDate(),
+                        receiptDate.getUTCHours(),
+                        receiptDate.getUTCMinutes()
+                        ],
+                         doc.balance);
+                }
+            }.toString(),
+            reduce: function(keys, values) {
+                return sum(values);
+            }.toString()
+        }
+    }
+}
+addView(designDocReduceReceiptsTotals_by_date);
+
+///////////////////////////////////////////////
+//    Count items purchased receipts by store and date
+///////////////////////////////////////////////
+// Compute a value over multiple documents
+// Using the results of the map function, reduce the list to a single value
+// Leverage the built in reduce functions, such as sum()
+// http://docs.couchdb.org/en/latest/couchapp/ddocs.html#reducefun
+// http://docs.couchdb.org/en/latest/couchapp/views/nosql.html#mapreduce-functions
+const designDocReduceReceiptsCount_by_date_store = {
+    _id: "_design/receiptsCountItemsSold_by_date_store",
+    language: "javascript",
+    views: {
+        receiptsCountItemsSold_by_date_store: {
+            map: function(doc) {
+                if (doc.type === 'receipt') {
+                    const receiptDate = new Date(doc.date)
+                    emit([doc.store_id,
+                        receiptDate.getUTCFullYear(),
+                        receiptDate.getUTCMonth() + 1,
+                        receiptDate.getUTCDate(),
+                        receiptDate.getUTCHours(),
+                        receiptDate.getUTCMinutes()
+                        ],
+                         doc.numberItemsSold);
+                }
+            }.toString(),
+            reduce: function(keys, values) {
+                 return sum(values);
+            }.toString()
+        }
+    }
+}
+addView(designDocReduceReceiptsCount_by_date_store);
