@@ -1,4 +1,5 @@
 # NoSQL Databases with CouchDB and PouchDB
 
 - [Database and Documents](/dbs-and-docs/)
-- [Views and Queries](/views/)
+- [Views](/views/)
+- [Data Access Layer (DAL)](/DAL)
