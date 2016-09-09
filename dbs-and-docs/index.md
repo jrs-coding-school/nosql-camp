@@ -331,7 +331,6 @@ There are two ways to delete documents with the API.  One is to use the `db.dele
 
 0. [Getting docuemnts in bulk](/dbs-and-docs/8)
 
-
 ## All the URLs
 
 - [Installing CouchDB and curl](/install/index)
@@ -340,4 +339,14 @@ There are two ways to delete documents with the API.  One is to use the `db.dele
 - [curl](https://curl.haxx.se/docs/manpage.html)
 - [JSON Primer](http://guide.couchdb.org/editions/1/en/json.html)
 
-[Home](/)  |  [Next](/)
+### Exercises
+0. [Adding a document](/dbs-and-docs/1)
+0. [Creating a batch of documents](/dbs-and-docs/2)
+0. [Fetching a batch of documents](/dbs-and-docs/3)
+0. [Fetching documents within a range](/dbs-and-docs/4)
+0. [Designing Searchable Document IDs](/dbs-and-docs/5)
+0. [Updating a document](/dbs-and-docs/6)
+0. [Deleting documents](/dbs-and-docs/7)
+0. [Getting documents in bulk](/dbs-and-docs/8)
+
+[Home](/)

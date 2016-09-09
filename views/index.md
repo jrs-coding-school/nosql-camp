@@ -1,4 +1,4 @@
-# Query
+# Views
 
 ## What you will learn
 
@@ -72,3 +72,11 @@ $ curl -GET http://127.0.0.1:5984/relief-tracker/_design/relief-test/_view/perso
 ## Demo:  Using the API to create a design document and query the databases
 
 ## Demo: Creating a reduce function to count purchases
+
+### Exercises
+
+0. [TODO View Exercise 1](/views/1)
+0. [TODO View Exercise 2](/views/2)
+0. [TODO View Exercise 3](/views/3)
+
+[Home](/)
