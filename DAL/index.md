@@ -7,16 +7,12 @@
 
 ### Exercises
 
-0. [`createPerson()` function](/DAL/1)
-0. [`createReliefEffort()` function](/DAL/2)
-0. [ABC function](/DAL/3)
-0. [DEF function](/DAL/4)
-0. [XYZ function](/DAL/5)
-0. [XYZ function](/DAL/6)
-0. [XYZ function](/DAL/7)
-0. [XYZ function](/DAL/8)
-0. [XYZ function](/DAL/9)
-0. [XYZ function](/DAL/10)
-0. [XYZ function](/DAL/11)
+0. [`createPerson()`](/DAL/1)
+0. [`createReliefEffort()`](/DAL/2)
+0. [`deletePerson()` and `deleteReliefEffort()`](/DAL/3)
+0. [`updatePerson()` and `updateReliefEffort()](/DAL/4)
+0. [`getPerson()` and `getReliefEffort()`](/DAL/5)
+0. [`createView()`](/DAL/6)
+0. [`listPersons()` and `listReliefEfforts()`](/DAL/7)
 
 [Home](/)

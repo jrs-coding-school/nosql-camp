@@ -36,7 +36,7 @@ db.query('receipts_all', {
 
 // Query the receipts_by_StoreRegister view.
 // Returns all receipts for store 5409
-//http://127.0.0.1:5984/register-view-demo/_design/storeRegister/_view/storeRegister?startkey=[%225409%22]&endkey=[%225409\uffff%22]&include_docs=true
+//http://127.0.0.1:5984/register-view-demo/_design/receipts_by_StoreRegister/_view/receipts_by_StoreRegister?startkey=[%225409%22]&endkey=[%225409\uffff%22]&include_docs=true
 // db.query('receipts_by_StoreRegister', {
 //     startkey: ["5409"],
 //     endkey:["5409\uffff"],
@@ -50,7 +50,7 @@ db.query('receipts_all', {
 // })
 
 // Returns all receipts for store 5410 and register 1020312
-// http://127.0.0.1:5984/register-view-demo/_design/storeRegister/_view/storeRegister?startkey=[%225410%22,%221020312%22]&endkey=[%225410%22,%221020312\uffff%22]&include_docs=true
+// http://127.0.0.1:5984/register-view-demo/_design/receipts_by_StoreRegister/_view/receipts_by_StoreRegister?startkey=[%225410%22,%221020312%22]&endkey=[%225410%22,%221020312\uffff%22]&include_docs=true
 // db.query('receipts_by_StoreRegister', {
 //     startkey: ["5410","1020312"],
 //     endkey:["5410","1020312\uffff"],
@@ -124,6 +124,27 @@ db.query('receipts_all', {
 //         //return console.log("response: ", response);
 //     }
 // })
+
+
+// Relief Tracker  1 of 3
+// https://pouchdb.com/2014/04/14/pagination-strategies-with-pouchdb.html
+// Search by last names that begin with "John"
+// No pagination ... which could return too may rows
+//http://127.0.0.1:5984/relief-tracker/_design/lastNameView/_view/lastNameView?startkey=%22John%22&endkey=%22John\uffff%22&include_docs=true
+
+// Relief Tracker  2 of 3
+// Search by last names that begin with "John"
+// limit by to 3 docs
+// grab the first page of records
+//http://127.0.0.1:5984/relief-tracker/_design/lastNameView/_view/lastNameView?startkey=%22John%22&endkey=%22John\uffff%22&include_docs=true&limit=3
+
+// Relief Tracker  3 of 3
+// Search by last names that begin with "John"
+// limit by to 3 docs
+// grab the next set of records, starting with the last key of the previous Search
+// use startkey to skip the first row (otherwise, we would get repeated results)
+//http://127.0.0.1:5984/relief-tracker/_design/lastNameView/_view/lastNameView?startkey=%22Johnsonperson_larryjohnson11111%22&endkey=%22John\uffff%22&include_docs=true&limit=3&skip=1
+
 
 
 // TO DO:
