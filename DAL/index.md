@@ -14,7 +14,6 @@
 0. [`deletePerson()` and `deleteReliefEffort()`](/DAL/3)
 0. [`updatePerson()` and `updateReliefEffort()`](/DAL/4)
 0. [`getPerson()` and `getReliefEffort()`](/DAL/5)
-0. [`createView()`](/DAL/6)
-0. [`listPersons()` and `listReliefEfforts()`](/DAL/7)
+
 
 [Home](/)
