@@ -19,18 +19,22 @@ var server = http.createServer(function(request, response) {
             'Content-Type': 'application/json'
         });
 
-        const responseBody = {
-                cats: [{
+        const responseBody = [{
+                    id: 1,
+                    animalType: "cat",
                     breed: "Pixie-bob",
                     desc: "The Pixie-bob is a breed of domestic cat claimed by breed founder Carol Ann Brewer of Washington State to be the progeny of naturally occurring bobcat hybrids."
                 }, {
+                    id: 2,
+                    animalType: "cat",
                     breed: "Manx",
                     desc: "The Manx cat, is a breed of domestic cat originating on the Isle of Man, with a naturally occurring mutation that shortens the tail."
                 }, {
+                    id: 3,
+                    animalType: "cat",
                     breed: "Maine Coon",
                     desc: "The Maine Coon is the largest domesticated breed of cat. It has a distinctive physical appearance and valuable hunting skills."
                 }]
-            }
             // writing a response body out to the client using a writeable stream
             // write the response to the stream
             // This sends a chunk of the response body.

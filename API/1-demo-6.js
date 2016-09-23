@@ -4,7 +4,7 @@
 
 ////////////////////////////////////////////
 //  Adding middleware: cors
-//  Adding helper libraries: server-summary, node-http-error
+//  Adding helper libraries: server-summary
 //  Description:  require and app.use(cors()) cors
 ////////////////////////////////////////////
 

@@ -38,6 +38,7 @@
 
 ### Exercise: Create your own http "cat" server
 
+- Within Nitrous, add a new folder named **express**.  Add a file to this folder named **1-ex.js**.
 - Use the following code as a starting point:
 
   ```
@@ -45,27 +46,16 @@
   //  Simple http server and request handler
   ////////////////////////////////////////////
   const http = require('http');
-  const port = process.env.PORT || 3000;
+  const port = 3000;
 
   // Any node web server application will at some point have to create a web server object.
-  // This is done by using createServer.
-  // The function that's passed in to createServer is called once for every HTTP request
-  //  that's made against that server, so it's called the request handler.
-  // When an HTTP request hits the server, node calls the request handler function
-  // with a few handy objects for dealing with the transaction, request and response.
+  // The request handler function is called once for every HTTP request
+  // that's made against that server.
 
   var server = http.createServer(function(request, response) {
-      // grab the request headers, method and URL
-      var headers = request.headers;
-      var method = request.method;
-      var url = request.url;
 
-      // the response object is a WritableStream,
+      // The response object is a WritableStream,
       // https://nodejs.org/api/http.html#http_class_http_serverresponse
-
-      // Sends a response header to the request. The status code is a
-      //   3-digit HTTP status code, like 404 or 200.
-      //     The last argument, headers, are the response headers.
       //
       // Here we return a 200 (OK) HTTP status code
       //  and the content-type... we're sending json back to the client, so....
@@ -74,13 +64,17 @@
           'Content-Type': 'application/json'
       });
 
-      // create a response containing some of the request information.
+      // create a response that contains your array of animals.
+      // Each animal should contain the following field names:
+      //____________________________________________________
+      //   Field Name     |     Field Description
+      //__________________|_________________________________
+      // id               | integer. required. Ex: 2
+      // animalType       | string. required.  Ex: "cat"
+      // breed            | string. required.  Ex: "Maine Coon"
+      // desc             | string. required.  Ex:  "The Maine Coon is the largest domesticated breed of cat."
 
-      var responseBody = {
-          headers: headers,
-          method: method,
-          url: url
-      };
+      var responseBody = []
 
       // write the response to the stream
       // This sends a chunk of the response body.
@@ -96,17 +90,37 @@
   server.listen(port, function() {
      console.log('opened server on', server.address(), "port: ", port)
   });
-
   ```
-- Modify the code above so the http server only serves requests to the `\cats` route.  Return a JSON array of 3 cat breeds and descriptions.
-- Any other route request (such as `\` or `\dogs`) will return a 404.
+
+- Modify the code above so the http server only serves requests to the `\animals` route.  
+- Return a JSON array of 3 animal breeds and descriptions.
+- Each item in the array should contain the following field names.
+  * id
+  * animalType
+  * breed
+  * desc
+
+Here's an example:
+
+```
+{
+    id: 1,
+    animalType: "cat",
+    breed: "Pixie-bob",
+    desc: "The Pixie-bob is a breed of domestic cat claimed by breed founder Carol Ann Brewer of Washington State to be the progeny of naturally occurring bobcat hybrids."
+}
+```
+
+- Any other route requests (such as `\` or `\stuff`) should return a 404.  Hint: `method`.
 - Test your API by making requests from your web browser.
-- 15 minutes
-- Time permitting:
-  - Instead of returning JSON, return cat images.
-  - Support a `\cats\1` route that returns cat # 1.
-  - Support a `\cats\2` route that returns cat # 2.
-  - Support a `\cats\3` route that returns cat # 3.
+- Extra Credit:
+  - Return a series of animal images on the `\animals\images` route.
+  - Support a `\animals\1` route that returns animal data with an id of 1.
+  - Support a `\animals\2` route that returns animal data with an id of 2.
+  - Support a `\animals\3` route that returns animal data with an id of 3.
+  - Support a `\animals\1\image` route that returns an image for animal 1.
+  - Support a `\animals\2\image` route that returns an image for animal 2.
+  - Support a `\animals\3\image` route that returns an image for animal 3.
 
 ## ExpressJS
 
@@ -263,14 +277,14 @@ app.post('/persons', function(req, res, next){
 ### Error handler in Express
 
 - `node-http-error` helps create a consistent error object.
-- Creating a returning a new error causes the error to be handled by the error-handling middleware.
+- Returning a new error causes the error to be handled by the error-handling middleware.
 - In Express, you should define error-handling middleware _last_, after other `app.use()` and routes calls.
 - Error-handling functions have four arguments: `(err, req, res, next)`.
 
   ```
   const HTTPError = require('node-http-error')
 
-  // Here's a route
+  // Here's a route to return an array of people
   app.post('/persons', function(req, res, next){
       console.log(req.body);
 
@@ -297,6 +311,10 @@ app.post('/persons', function(req, res, next){
   });
   ```
 
+### Demo:  Error Handling
+
+Walk through creating errors and handling those errors with express middleware.
+
 ### Exercise: Study error handling in express
 
 Take 15 minutes and read more on middleware and error handling in express:
@@ -308,7 +326,7 @@ Take 15 minutes and read more on middleware and error handling in express:
 
 - Create a new JavaScript file to contain your express application
 - require the following libraries
-  * 
+  *
 
 ## Pagination
 
