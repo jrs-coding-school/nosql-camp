@@ -17,7 +17,6 @@ app.get('/', function(request, response) {
         'Content-Type': 'application/json'
     });
 
-
     // create a response containing some of the request information.
     var responseMessage = { whatup: "Boot Camp API Fun!"};
 

@@ -18,14 +18,28 @@ By completing this module you will be able to:
 - Unlike a relational database, CouchDB is schema-free. You _don't_ design the tables, columns, data types up-front.
 - CouchDB allows you to easily replicate your data on your own machine or across computers around the world.  This promotes fault tolerance.
 - A RESTful (REST-Representational State Transfer) API is baked into its DNA. Use the API to do anything.  Typically used with HTTP to provide a stateless design ofr networked application.  Futon, an administrative website for CouchDB, uses the API do manage things like creating database, editing JSON documents, running queries, triggering replication...
--  Couch utilizes map and reduce (MapReduce or MapReducing) for indexing and querying the database. Map extracts data while reduce aggregates data. Unlike RDBMS SQL queries, MapReduce can be distributed among multiple nodes making it scalable and fast. Map and reduce functions are written is JavaScript.
+-  Couch utilizes map and reduce (MapReduce or MapReducing) for indexing and querying the database. Map extracts data while reduce aggregates data. Unlike RDBMS SQL queries, MapReduce can be distributed among multiple nodes making it scalable and fast. Map and reduce functions are written in JavaScript.
 - CouchDB supports offline scenarios.  Replicate data to your mobile application.  Enter data locally while flying cross-country.  Sync the data when you land.  
+    * Incremental replication.  
+- CouchDB fully embraces the web (HTTP) via a RESTful HTTP API.
+    * naming via URIs (think routes for your resources)
+    * DNS for name resolution
+    * Caching via the Etag header
+    * Security via TLS (HTTPS)
+- Eventual consistency
+
 
 ## What is PouchDB?
 
 PouchDB (Pouch) is a JavaScript database that is inspired by CouchDB.  It runs within the web browser.  This enables you as the developer to store data locally within the browser.  This is especially useful when the users of your applications are working offline.  
 
-> It is very easy to synchronize the data with PouchDB with CouchDB, once your users are back online.  The synchronization is two-way.  Changes to CouchDB can be sync'd with Pouch, as well.  
+> It is very easy to synchronize the data with PouchDB with CouchDB, once your users are back online.  The synchronization is two-way.  Changes to CouchDB can be sync'd with Pouch, as well.
+
+With PouchDB the requests to the database are local on the native machine.
+- Low latency (fast)
+- Replication to the CouchDB server via HTTP asynchronously.  
+- Result is a good user experience for your apps.
+-
 
 PouchDB runs quite well in Node.js.  You can use Pouch's JavaScript Application Programming Interface (API) to talk directory to databases that reside in either CouchDB or PouchDB.  [more...](https://pouchdb.com/learn.html).  
 
@@ -329,7 +343,7 @@ There are two ways to delete documents with the API.  One is to use the `db.dele
 
 ### Exercises
 
-0. [Getting docuemnts in bulk](/dbs-and-docs/8)
+0. [Getting documents in bulk](/dbs-and-docs/8)
 
 ## All the URLs
 
@@ -348,5 +362,12 @@ There are two ways to delete documents with the API.  One is to use the `db.dele
 0. [Updating a document](/dbs-and-docs/6)
 0. [Deleting documents](/dbs-and-docs/7)
 0. [Getting documents in bulk](/dbs-and-docs/8)
+
+## Homework
+
+- Watch and complete the Getting Started video and tutorial
+
+[Getting started with PouchDB and CouchDB](https://www.youtube.com/watch?v=-Z7UF2TuSp0)
+
 
 [Home](/)

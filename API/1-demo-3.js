@@ -23,7 +23,7 @@ var server = http.createServer(function(request, response) {
         response.write('<html>');
         response.write('<body>');
         response.write('<h2>Request Info</h2>');
-        response.write('<h3>Method</h2>');
+        response.write('<h3>Method</h3>');
         response.write('<p>' + request.method + '</p>');
         response.write('<h3>Host</h3>');
         response.write('<p>' + request.headers.host + '</p>');

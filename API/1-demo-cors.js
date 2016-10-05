@@ -3,28 +3,25 @@
 // $ PORT=4000 node API/1-demo-X.js
 
 ////////////////////////////////////////////
-//  Adding Express as an request handler
-//  Respond to all (*) HTTP GET events
+//  Adding middleware: cors
+//  Adding helper libraries: server-summary
+//  Description:  require and app.use(cors()) cors
+
+// https://en.wikipedia.org/wiki/Cross-origin_resource_sharing
 ////////////////////////////////////////////
 
 const http = require('http');
 const app = require('express')();
 //const summary = require('server-summary');  //Log basic server information after an http server start.
 const port = process.env.PORT || 3000;
+const cors = require('cors');
 
+app.use(cors())
 // When an HTTP request hits the server, node calls the request handler function
 // with a few handy objects for dealing with the transaction: request and response.
-
 app.get('*', (req, res) => res.send({
     WhatUp: "Im listening to all your requests..."
 }))
-
-
-// app.get('*', function (req, res) {
-//     return res.send({
-//         WhatUp: "Im listening to all your requests..."
-//     })
-// })
 
 // Any node web server application will at some point have to create a web server object.
 // This is done by using createServer.

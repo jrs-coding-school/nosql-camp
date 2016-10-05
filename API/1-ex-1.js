@@ -12,7 +12,7 @@ const path = require('path');
 
 var server = http.createServer(function(request, response) {
 
-    if (request.method === 'GET' && request.url === '/cats') {
+    if (request.method === 'GET' && request.url === '/persons') {
 
         // set the status and headers before you start writing chunks of data to the body.
         response.writeHead(200, {
@@ -20,21 +20,30 @@ var server = http.createServer(function(request, response) {
         });
 
         const responseBody = [{
-                    id: 1,
-                    animalType: "cat",
-                    breed: "Pixie-bob",
-                    desc: "The Pixie-bob is a breed of domestic cat claimed by breed founder Carol Ann Brewer of Washington State to be the progeny of naturally occurring bobcat hybrids."
-                }, {
-                    id: 2,
-                    animalType: "cat",
-                    breed: "Manx",
-                    desc: "The Manx cat, is a breed of domestic cat originating on the Isle of Man, with a naturally occurring mutation that shortens the tail."
-                }, {
-                    id: 3,
-                    animalType: "cat",
-                    breed: "Maine Coon",
-                    desc: "The Maine Coon is the largest domesticated breed of cat. It has a distinctive physical appearance and valuable hunting skills."
-                }]
+           id: 2,
+           firstName: "Jimmy",
+           lastName: "Martin",
+           phone: "404 394-2479",
+           email: "JimmyMartinJr@gmail.com",
+           type: "person",
+           active: true
+        }, {
+           id: 3,
+           firstName: "Frank",
+           lastName: "Jeffries",
+           phone: "303 222-1719",
+           email: "frankj1000@gmail.com",
+           type: "person",
+           active: true
+        }, {
+           id: 4,
+           firstName: "Judy",
+           lastName: "Smith",
+           phone: "843 399-1444",
+           email: "JudySmith@gmail.com",
+           type: "person",
+           active: true
+        }]
             // writing a response body out to the client using a writeable stream
             // write the response to the stream
             // This sends a chunk of the response body.
