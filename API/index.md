@@ -1,3 +1,8 @@
+
+[Home](/) | [Install](/install) | [Database and Documents](/dbs-and-docs/) | [Data Access Layer (DAL)](/DAL) | [Views](/views/) | [API](/API/)  
+
+---
+
 # Creating a RESTful API
 
 ## What you will learn
@@ -456,4 +461,4 @@ here's another example:
 0. [``](/API/6)
 0. [``](/API/7)
 
-[Home](/)
+[Home](/) | [Exercises](/API/1)

@@ -1,3 +1,9 @@
+
+[Home](/) | [Install](/install) | [Database and Documents](/dbs-and-docs/) | [Data Access Layer (DAL)](/DAL) | [Views](/views/) | [API](/API/)  
+
+---
+
+
 # Installing CouchDB and curl
 
 ## Install CouchDB

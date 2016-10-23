@@ -1,3 +1,9 @@
+
+[Home](/) | [Install](/install) | [Database and Documents](/dbs-and-docs/) | [Data Access Layer (DAL)](/DAL) | [Views](/views/) | [API](/API/)  
+
+---
+
+
 # Databases and Documents
 
 ## What you will learn
@@ -391,4 +397,4 @@ There are two ways to delete documents with the API.  One is to use the `db.dele
 [Getting started with PouchDB and CouchDB](https://www.youtube.com/watch?v=-Z7UF2TuSp0)
 
 
-[Home](/)
+[Home](/)  | [Exercises](/dbs-and-docs/1)

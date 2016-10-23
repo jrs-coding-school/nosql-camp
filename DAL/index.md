@@ -1,3 +1,8 @@
+
+[Home](/) | [Install](/install) | [Database and Documents](/dbs-and-docs/) | [Data Access Layer (DAL)](/DAL) | [Views](/views/) | [API](/API/)  
+
+---
+
 # Creating the NoSQL Data Access Layer (DAL)
 
 ## What you will learn
@@ -16,4 +21,4 @@
 0. [`getPerson()` and `getReliefEffort()`](/DAL/5)
 
 
-[Home](/)
+[Home](/) | [Exercises](/DAL/1)
