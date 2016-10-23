@@ -45,7 +45,7 @@ BACKEND (Database)--> API TEAM --> API --> Developer --> APP --> USER
 - To use the HTTP server and client one must `require('http')`.
 - Create a web server using `createServer(someRequestHandler)`
 - The request handler function is called _every time an HTTP request is made_.
-- Before you respond to requests you have to listen.
+- Before you respond to a request, you first have to listen.
 
   ```
   const http = require('http');
@@ -89,7 +89,6 @@ BACKEND (Database)--> API TEAM --> API --> Developer --> APP --> USER
 
 
   ```
-
   ////////////////////////////////////////////
   //  Simple http server and request handler
   ////////////////////////////////////////////
@@ -183,11 +182,12 @@ Here's an example:
 
 ## ExpressJS
 
-- Install Express :
+- Install Express:
 
- ```
- $ npm install express
- ```
+  ```
+  $ npm install express
+  ```
+
 - Express is a web framework for NodeJS.
 - Layer over Node.js http module
 - Use middleware to provide things like:
@@ -413,15 +413,13 @@ The goal of this exercise is to get you familiar with writing an error handler w
 - Create an http server, passing in the express app to handle events
 - Listen to http server events on port `8080`.
 - Create a "good" `GET` route that simply returns simple json data.
-- Create a "bad" `GET` route that causes `node-http-error` an error.
-  * hint: use `next` to pass the error to an error handler.
+- Create a "bad" `GET` route that causes a `node-http-error` error.
+  * hint: use `next` to pass the error to error handler middleware.
 - Utilize the ExpressJS `use` function to create an error handler.
 
 ## Cross origin resource sharing (CORS)
 
 [Definition](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)
-
-
 
 ## Pagination
 

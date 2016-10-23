@@ -160,9 +160,39 @@ When CouchDB is installed locally, you can load Futon by browsing to:
 
     > Documents values must be entered as valid JSON.
 
-- Note the `_id` field and value is populated for you.  This is a UUID. Don't change this value.
+    ** Example CouchDB Document**
+    ```
+    {
+        "_id": "person_JimmyMartinJr@gmail.com",
+        "_rev": "1-6a03349ba1398f6d38a3871ff9721725",
+        "firstName": "Jimmy",
+        "lastName": "Martin",
+        "phone": "404 394-2479",
+        "email": "JimmyMartinJr@gmail.com",
+        "type": "person",
+        "active": true
+    }
+    ```
+
+- When adding via Futon, note the `_id`. It is populated for you.  This is a UUID. Documents are sorted by the `_id` field.  You are free to leverage the `_id` value.
 
     > In the future, you will write applications that interact with CouchDB/PouchDB via an API.  In your application's code, you will want to generate the `_id` value yourself.  This will help prevent duplicate documents if the first call fails due to a network issue, for example.  It also provides a handy way to sort the documents by default via `GET http://127.0.0.1:5984/YourDatabase/_all_docs`.
+
+    * `_id` is reserved in CouchDB.
+    * `_id` is always a string.
+    * `_id` is the _primary key_ for your database.  
+    * We can use the value of `_id` to our advantage. CouchDB/PouchDB will sort the documents by the `_id`.
+    * For example, if you want to sort your documents by date (by default), you could use a Date for the `_id` value.
+    * `Date().toISOString()` would give you a data string that looks like this:
+
+    ```
+    2011-10-05T14:48:00.000Z
+    ```
+
+    * See MDN [toISOString()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString).
+    * Using the API you can either use `db.put()` or `db.post()` to add a doc to the database.  With `db.put()`, you supply the `_id`. (Desired)  With `db.post()`, couch will supply the `_id` value for you. Using post is not desired as Couch will supply a random UUID and your docs will be sorted randomly.
+    *
+
 
 - Save the document.  Note the `_rev` field.  Note how the value starts with `1-`
 
@@ -323,7 +353,6 @@ curl -X PUT http://127.0.0.1:5984/albums/6e1295ed6c29495e54cc05947f18c8af -d '{"
 ### Exercises
 
 0. [Updating a document](/dbs-and-docs/6)
-
 
 ## Deleting documents
 
