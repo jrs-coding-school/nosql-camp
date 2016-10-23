@@ -73,7 +73,7 @@ If couch is running, you'll get back some JSON with a welcome message. The examp
 }
 ```
 
-If you receive an error, you may need to [start couch](#starting-couchdb).
+If you receive an error, you may need to start couch.
 
 ## Starting Couchdb
 
