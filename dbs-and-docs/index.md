@@ -5,7 +5,6 @@
 By completing this module you will be able to:
 - Define CouchDB and PouchDB
 - Describe the factors that favor NoSQL databases.
-- Describe where specific types of databases fit within the CAP theorem.
 - Manage CouchDB databases and documents with Futon.
 - Manage CouchDB with it's Hypertext Transfer Protocol (HTTP) Application Programming Interface (API) using a Command Line Interface (CLI).
 - Manage PouchDB/CouchDB databases and documents with PouchDB's JavaScript API.
@@ -17,15 +16,11 @@ By completing this module you will be able to:
 - CouchDB (or Couch) is a NoSQL (not only SQL) database management system (DBMS) that stores JSON documents within a database. In fact, everything is stored as JSON.  
 - Unlike a relational database, CouchDB is schema-free. You _don't_ design the tables, columns, data types up-front.
 - CouchDB allows you to easily replicate your data on your own machine or across computers around the world.  This promotes fault tolerance.
-- A RESTful (REST-Representational State Transfer) API is baked into its DNA. Use the API to do anything.  Typically used with HTTP to provide a stateless design ofr networked application.  Futon, an administrative website for CouchDB, uses the API do manage things like creating database, editing JSON documents, running queries, triggering replication...
+- A RESTful (REST-Representational State Transfer) API is baked into its DNA. Use the API to do anything. Futon, an administrative website for CouchDB, uses the API do manage things like creating database, editing JSON documents, running queries, triggering replication...
 -  Couch utilizes map and reduce (MapReduce or MapReducing) for indexing and querying the database. Map extracts data while reduce aggregates data. Unlike RDBMS SQL queries, MapReduce can be distributed among multiple nodes making it scalable and fast. Map and reduce functions are written in JavaScript.
 - CouchDB supports offline scenarios.  Replicate data to your mobile application.  Enter data locally while flying cross-country.  Sync the data when you land.  
     * Incremental replication.  
-- CouchDB fully embraces the web (HTTP) via a RESTful HTTP API.
-    * naming via URIs (think routes for your resources)
-    * DNS for name resolution
-    * Caching via the Etag header
-    * Security via TLS (HTTPS)
+
 - Eventual consistency
 
 
@@ -43,9 +38,6 @@ With PouchDB the requests to the database are local on the native machine.
 
 PouchDB runs quite well in Node.js.  You can use Pouch's JavaScript Application Programming Interface (API) to talk directory to databases that reside in either CouchDB or PouchDB.  [more...](https://pouchdb.com/learn.html).  
 
-## CAP Theorem
-
-TODO
 
 ## Relational or NoSQL
 

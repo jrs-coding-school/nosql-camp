@@ -87,5 +87,3 @@ If you don't want CouchDB running all the time in the background, you can run it
   ```
 
 If you want to issue additional curl commands, you'll have to do so in separate terminal session.  
-
-## Install Atom
