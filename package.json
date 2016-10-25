@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0",
-    "start": "cck"
+    "start": "cck",
+    "css": "tachyons src/app.css > css/style.css"
   },
   "repository": {
     "type": "git",
@@ -28,5 +29,9 @@
     "pouchdb": "^5.4.5",
     "pouchdb-http": "^6.0.2",
     "pouchdb-mapreduce": "^6.0.4"
+  },
+  "devDependencies": {
+    "tachyons": "^4.5.4",
+    "tachyons-cli": "^1.0.8"
   }
 }
