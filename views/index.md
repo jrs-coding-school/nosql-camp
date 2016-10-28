@@ -275,11 +275,4 @@ Use the `startkey`, `endkey` options to limit results
 ## TO DO:  Go through demo1-3-query.js and add demos
 
 
-
-### Exercises
-
-0. [Creating a Relief Tracker View](/views/1)
-1. [TODO View Exercise 2](/views/2)
-2. [TODO View Exercise 3](/views/3)
-
-[Home](/)
+[Home](/)  | [Next](/views/1)
