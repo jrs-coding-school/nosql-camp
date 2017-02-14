@@ -15,7 +15,7 @@ const port = process.env.PORT || 3000;
 // The function that's passed in to createServer is called once for every HTTP request
 //  that's made against that server, so it's called the request handler.
 // When an HTTP request hits the server, node calls the request handler function
-// with a few handy objects for dealing with the transaction, request and response.
+// with a few handy objects for dealing with the request and response.
 var server = http.createServer(function(request, response) {
     // grab the request headers, method and URL
     var headers = request.headers;

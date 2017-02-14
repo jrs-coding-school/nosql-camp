@@ -69,7 +69,7 @@ BACKEND (Database)--> API TEAM --> API --> Developer --> APP --> USER
 
 ### DEMO: Simple http server and request handler
 
-- (API/1-demo-1.js)
+- (API/demos/1-demo-1.js)
 
 ## Data formats
 
@@ -173,17 +173,17 @@ Here's an example:
 }
 ```
 
-- Any other route requests (such as `\` or `\stuff`) should return a 404 (not found).  
+- Any other route requests (such as `/` or `/stuff`) should return a 404 (not found).  
   * Hint: `method` and `url`.
 - Test your API by making requests from your web browser.
 - Extra Credit (if you finish early):
-  * Return a series of person images on the `\persons\images` route.
-  * Support a `\persons\1` route that returns person data with an id of 1.
-  * Support a `\persons\2` route that returns person data with an id of 2.
-  * Support a `\persons\3` route that returns person data with an id of 3.
-  * Support a `\persons\1\image` route that returns an image for person 1.
-  * Support a `\persons\2\image` route that returns an image for person 2.
-  * Support a `\persons\3\image` route that returns an image for person 3.
+  * Return a series of person images on the `/persons/images` route.
+  * Support a `/persons/1` route that returns person data with an id of 1.
+  * Support a `/persons/2` route that returns person data with an id of 2.
+  * Support a `/persons/3` route that returns person data with an id of 3.
+  * Support a `/persons/1/image` route that returns an image for person 1.
+  * Support a `/persons/2/image` route that returns an image for person 2.
+  * Support a `/persons/3/image` route that returns an image for person 3.
 
 ## ExpressJS
 

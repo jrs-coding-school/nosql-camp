@@ -25,7 +25,7 @@ var server = http.createServer(app);
 
 // Any node web server application will at some point have to create a web server object.
 // This is done by using createServer.
-app.get('/jt', (req,res) => res.send({
+app.get('/jt', (req, res) => res.send({
     jtSays: "Bring it on down to omletteville."
 }));
 
@@ -37,12 +37,12 @@ app.get('/jt', (req,res) => res.send({
 
 // This example shows a route and its handler function (middleware system).
 // The function handles GET requests to the /jt/awful path.
-app.get('/jt/awful', function (request, response, next) {
-    var jtError = new HTTPError(500, 'impossible', {jtSays: "Girl, you know that's not true."})
+app.get('/jt/awful', function(request, response, next) {
+    var jtError = new HTTPError(400, 'impossible', {
+        jtSays: "Girl, you know that's not true."
+    })
     return next(jtError);
 })
-
-app.delete('/persons/:id')
 
 // // This example shows a route and its handler function (middleware system).
 // // The function handles all GET requests that are not being handled by other routes.
@@ -51,9 +51,12 @@ app.delete('/persons/:id')
 // })
 // );
 
+// Define error-handling middleware functions in the same way as
+//  other middleware functions,
+// except error-handling functions have four arguments instead
+//  of three: (err, req, res, next).
 
-// Define error-handling middleware functions in the same way as other middleware functions,
-// except error-handling functions have four arguments instead of three: (err, req, res, next).
+
 app.use(function(err, req, res, next) {
     console.log(req.method, " ", req.path, " err: ", err)
     res.status(err.status || 500);
@@ -64,4 +67,4 @@ app.use(function(err, req, res, next) {
 //  to be called on the server object using the port number and some options
 //  such as the callback.
 // listen callback demo option 1
-server.listen(port, () => console.log('opened server on', server.address()));
+server.listen(port, () => console.log('opened server on', server.address(), " port: ", port));
