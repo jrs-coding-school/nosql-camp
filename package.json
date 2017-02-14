@@ -23,7 +23,7 @@
   "homepage": "https://github.com/jrs-innovation-center/test-camp#readme",
   "dependencies": {
     "body-parser": "^1.15.2",
-    "codecampkit": "^2.3.5",
+    "codecampkit": "^2.4.3",
     "node-http-error": "^1.0.0",
     "path": "^0.12.7",
     "pouchdb": "^5.4.5",
