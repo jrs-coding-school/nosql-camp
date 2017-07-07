@@ -1,12 +1,19 @@
 /*jshint esversion: 6 */
 const PouchDB = require('pouchdb-http');
 PouchDB.plugin(require('pouchdb-mapreduce'));
-const couch_base_uri = "http://127.0.0.1:5984/"
-const couch_dbname = "register-view-demo2"
+const couch_base_uri = "http://127.0.0.1:3000/"
+const couch_dbname = "register-view-demo"
 const db = new PouchDB(couch_base_uri + couch_dbname)
 
+
+
+db.query('receiptsTotals_by_date', {limit:100, reduce:true, group_level:2}, callbackHelper)
+
+
+
 // query the receipts_all view.
-//Returns all receipts.
+// Returns all receipts.
+
 // db.query('receipts_all', {
 //     include_docs: true
 // }, function(err, response) {
@@ -34,6 +41,14 @@ const db = new PouchDB(couch_base_uri + couch_dbname)
 //     }
 // })
 
+function callbackHelper (err, response) {
+    if (err) return console.log(err)
+    if (response) {
+        return console.log("response: ", JSON.stringify(response, null, 2));
+        //return console.log("response: ", response);
+    }
+}
+
 
 // Query the receipts_by_StoreRegister view.
 // Returns all receipts for store 5409
@@ -42,16 +57,10 @@ const db = new PouchDB(couch_base_uri + couch_dbname)
 //     startkey: ["5409"],
 //     endkey:["5409\uffff"],
 //     include_docs: true
-// }, function(err, response) {
-//     if (err) return console.log(err)
-//     if (response) {
-//         return console.log("receipts_by_StoreRegister response: ", JSON.stringify(response, null, 2));
-//         //return console.log("response: ", response);
-//     }
-// })
-
-// Returns all receipts for store 5410 and register 1020312
-// http://127.0.0.1:5984/register-view-demo/_design/receipts_by_StoreRegister/_view/receipts_by_StoreRegister?startkey=[%225410%22,%221020312%22]&endkey=[%225410%22,%221020312\uffff%22]&include_docs=true
+// }, callbackHelper)
+//
+// // Returns all receipts for store 5410 and register 1020312
+// // http://127.0.0.1:5984/register-view-demo/_design/receipts_by_StoreRegister/_view/receipts_by_StoreRegister?startkey=[%225410%22,%221020312%22]&endkey=[%225410%22,%221020312\uffff%22]&include_docs=true
 // db.query('receipts_by_StoreRegister', {
 //     startkey: ["5410","1020312"],
 //     endkey:["5410","1020312\uffff"],
@@ -83,14 +92,14 @@ const db = new PouchDB(couch_base_uri + couch_dbname)
 
 
 // Sum all the receipts
-//http://127.0.0.1:5984/register-view-demo/_design/receiptsTotals_by_date/_view/receiptsTotals_by_date
-db.query('receiptsTotals_by_date', {}, function(err, response) {
-    if (err) return console.log(err)
-    if (response) {
-        return console.log("receiptsTotals_by_date response: ", JSON.stringify(response, null, 2));
-        //return console.log("response: ", response);
-    }
-})
+// http://127.0.0.1:5984/register-view-demo/_design/receiptsTotals_by_date/_view/receiptsTotals_by_date
+// db.query('receiptsTotals_by_date', {}, function(err, response) {
+//     if (err) return console.log(err)
+//     if (response) {
+//         return console.log("receiptsTotals_by_date response: ", JSON.stringify(response, null, 2));
+//         //return console.log("response: ", response);
+//     }
+// })
 
 // Sum all the receipts for April 5th
 //http://127.0.0.1:5984/register-view-demo/_design/receiptsTotals_by_date/_view/receiptsTotals_by_date?startkey=[2016,4,5,0,0]&endkey=[2016,4,5,24,0]
@@ -145,11 +154,3 @@ db.query('receiptsTotals_by_date', {}, function(err, response) {
 // grab the next set of records, starting with the last key of the previous Search
 // use startkey to skip the first row (otherwise, we would get repeated results)
 //http://127.0.0.1:5984/relief-tracker/_design/lastNameView/_view/lastNameView?startkey=%22Johnsonperson_larryjohnson11111%22&endkey=%22John\uffff%22&include_docs=true&limit=3&skip=1
-
-
-
-// TO DO:
-// Linked document examples:
-// http://wiki.apache.org/couchdb/Introduction_to_CouchDB_views#Linked_documents
-// http://docs.couchdb.org/en/latest/couchapp/views/joins.html#using-view-collation
-//  See reliefEffortsLinked design document within relief-tracker database

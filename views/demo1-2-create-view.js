@@ -1,8 +1,8 @@
 /*jshint esversion: 6 */
 const PouchDB = require('pouchdb-http');
 PouchDB.plugin(require('pouchdb-mapreduce'));
-const couch_base_uri = "http://127.0.0.1:5984/"
-const couch_dbname = "register-view-demo2"
+const couch_base_uri = "http://127.0.0.1:3000/"
+const couch_dbname = "register-view-demo"
 const db = new PouchDB(couch_base_uri + couch_dbname)
 
 /////////////////////
@@ -23,8 +23,8 @@ function addView(view) {
 /////////////////////
 // To create views in CouchDB,  you create a function that takes a document
 // and outputs (emit) key value pairs.
-// you never need to emit() the full document in your map/reduce functions.
-// You can always just use {include_docs: true} when you query the view
+// Do NOT emit() the full document in your map/reduce functions.
+// Instead, use {include_docs: true} when you query the view
 const designDocreceipts_all = {
     _id: "_design/receipts_all",
     language: "javascript",
@@ -32,7 +32,7 @@ const designDocreceipts_all = {
         receipts_all: {
             map: function(doc) {
                 if (doc.type === 'receipt') {
-                    emit(null, doc.store_id);
+                    emit(doc.date, doc.store_id);
                 }
             }.toString()
         }

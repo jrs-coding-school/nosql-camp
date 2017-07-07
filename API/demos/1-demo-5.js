@@ -1,6 +1,6 @@
 /*jshint esversion: 6 */
 
-// $ PORT=4000 node API/1-demo-X.js
+// $ PORT=4000 node API/demos/1-demo-5.js
 
 ////////////////////////////////////////////
 //  Demo: Error Handling

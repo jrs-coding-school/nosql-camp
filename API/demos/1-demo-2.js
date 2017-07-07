@@ -4,7 +4,7 @@
 // Different content-type and more stream goodness
 ////////////////////////////////////////////////////
 
-// $ PORT=4000 node API/1-demo-2.js
+// $ PORT=4000 node API/demos/1-demo-2.js
 const http = require('http');
 const port = process.env.PORT || 3000;
 

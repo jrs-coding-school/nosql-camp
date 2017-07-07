@@ -1,6 +1,6 @@
 /*jshint esversion: 6 */
 
-// $ PORT=4000 node API/1-demo-X.js
+// $ PORT=4000 node API/demos/1-demo-4.js
 
 ////////////////////////////////////////////
 //  Adding Express as an request handler
@@ -20,12 +20,6 @@ app.get('*', (req, res) => res.send({
 }))
 
 
-// app.get('*', function (req, res) {
-//     return res.send({
-//         WhatUp: "Im listening to all your requests..."
-//     })
-// })
-
 // Any node web server application will at some point have to create a web server object.
 // This is done by using createServer.
 
@@ -38,6 +32,6 @@ var server = http.createServer(app);
 //  such as the callback.
 
 // listen callback demo option 1
-server.listen(port, () => console.log('opened server on', server.address()));
+server.listen(port, () => console.log('opened server on', server.address(), ' and port ' port));
 // listen callback demo option 2
 //server.listen(port, summary(server));
